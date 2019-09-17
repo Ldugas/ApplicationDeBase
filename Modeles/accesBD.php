@@ -18,7 +18,7 @@ class accesBD
 	public function __construct()
 		{
 		// ORDI PROFSIO
-		$this->hote="172.16.0.50";
+		$this->hote="172.16.0.50";      // localhost
 		$this->port="";
 		$this->login="ALT19DUGAS";
 		$this->passwd="Abc123de45";
