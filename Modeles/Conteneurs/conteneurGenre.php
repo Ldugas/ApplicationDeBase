@@ -1,5 +1,7 @@
 ﻿<?php
+//require_once 'accesBD.php';
 include_once('Modeles/Metiers/genre.php');
+
 
 Class conteneurGenre
 	{
@@ -10,6 +12,7 @@ Class conteneurGenre
 	public function __construct()
 		{
 		$this->lesGenres = new arrayObject();
+
 		}
 
 	//METHODE AJOUTANT UN genre------------------------------------------------------------------------------
@@ -27,7 +30,7 @@ Class conteneurGenre
 		}
 
 	//METHODE RETOURNANT LA LISTE DES Genres-----------------------------------------------------------------------------------------
-	public function listeDesGenres()
+	public function listeDesGenres($image)
 		{
 		$liste = "<div class='container h-100'>
                     <div class='row h-100 justify-content-center align-items-center'>
@@ -38,7 +41,7 @@ Class conteneurGenre
                             </thead>
                             <tbody>";
 		foreach ($this->lesGenres as $unGenre)
-			{	$liste = $liste.'<tr><td class="text-white td-table">'.$unGenre->getLibelleGenre().'</td><td class="text-white td-table">'.$unGenre->getIdGenre().'</td></tr>';
+			{	$liste = $liste.'<tr><td class="text-white td-table">'.$unGenre->getLibelleGenre().'</td><td class="text-white td-table"><img src="C:/wamp64/www/ApplicationDeBase/Images/"'.$image.'></td></tr>'; //'.ImageGenre($unGenre->getIdGenre()).'
 			}
 			$liste=$liste."</tbody></table></div></div>";
 		return $liste;
