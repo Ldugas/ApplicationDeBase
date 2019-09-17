@@ -21,7 +21,7 @@ class accesBD
 		$this->hote="172.16.0.50";
 		$this->port="";
 		$this->login="ALT19DUGAS";
-		$this->passwd="Leodugasdu49";
+		$this->passwd="Abc123de45";
 		$this->base="videoppe3_Dugas_Guilloteau_Pereira";
 		
 		// ORDI DEV2
