@@ -397,11 +397,12 @@ class accesBD
 	//----------------------------RECUPERE LE NOM DE L'IMAGE EN FONCTION DES GENRES--------------------------------------------------------------------------------------------------------------------------------------------------
 	//-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-	private function ImageGenre($Genre)
+	public function ImageGenre($Genre)
 	{
 	  $stringQuery = $this->specialCase("SELECT support.image FROM genre inner join support on genre.idGenre = support.idGenre WHERE genre.idgenre =".$Genre.";");
+		echo $stringQuery;
 		$requete = $this->conn->prepare($stringQuery);
-		return $requete->execute();
+		return $requete->execute()->fetch()[0];
 	}
 }
 ?>
