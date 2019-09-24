@@ -399,7 +399,7 @@ class accesBD
 
 	private function ImageGenre($Genre)
 	{
-	  $stringQuery = $this->specialCase("SELECT support.image FROM genre inner join support on genre.idGenre = support.idGenre WHERE idgenre =".$Genre.";");
+	  $stringQuery = $this->specialCase("SELECT support.image FROM genre inner join support on genre.idGenre = support.idGenre WHERE genre.idgenre =".$Genre.";");
 		$requete = $this->conn->prepare($stringQuery);
 		return $requete->execute();
 	}
