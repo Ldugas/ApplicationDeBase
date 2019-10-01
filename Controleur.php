@@ -2,6 +2,7 @@
 //include du fichier GESTION pour les objets (Modeles)
 include 'Modeles/gestionVideo.php';
 
+
 //classe CONTROLEUR qui redirige vers les bonnes vues les bonnes informations
 class Controleur
 	{
@@ -117,10 +118,21 @@ class Controleur
 				//pour cela je verifie dans le conteneurClient via la gestion.
 				$unLogin=$_GET['login'];
 				$unPassword=$_GET['password'];
+
+				//session_start();
+				//$_SESSION['login'] = $unLogin;
+				//$_SESSION['password']   = $unPassword;
+
 				$resultat=$this->maVideotheque->verifLogin($unLogin, $unPassword);
 						//si le client existe alors j'affiche le menu et la page visuGenre.php
 						if($resultat==1)
 						{
+							//***** Authentification réussie *******//
+							$_SESSION = array();
+							session_destroy();
+							session_start();
+							$_SESSION['login']= $unLogin;
+							$_SESSION['Password']= $unPassword;
 							require 'Vues/menu.php';
 							echo $this->maVideotheque->listeLesGenres();
 						}
@@ -202,10 +214,11 @@ class Controleur
 								}
 							else
 								{
-								//$_SESSION['lesRessources'] = $this->maVideotheque->listeLesRessources();
+
+								//$_SESSION['lesRessources'] = $this->maVideotheque->listeLesRessources($unGenre);
 								$unGenre=$_GET['Genre'];
 								echo $this->maVideotheque->listeLesRessources($unGenre);
-								require 'Vues/voirRessource.php';
+								require 'Vues/voirRessources.php';
 								}
 							break;
 							case "enregistrer" :
@@ -231,7 +244,7 @@ class Controleur
 			//CAS enregistrement d'une ressource dans la base------------------------------------------------------------------------------
 
 			}
-		
+
 
 	}
 ?>

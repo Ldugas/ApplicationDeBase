@@ -36,7 +36,7 @@ Class conteneurGenre
 
 		foreach ($this->lesGenres as $unGenre)
 			{
-				$liste = $liste."<a href='index.php?vue=Videotheque&action=choixGenre&Genre=".$unGenre->getIdGenre()."' method='post''><p class=test >".$unGenre->getLibelleGenre()."</p><img src='http://localhost/ApplicationDeBase/Images/".$unGenre->getNomImage()."'></a>"; //'.ImageGenre($unGenre->getIdGenre()).'
+				$liste = $liste."<a href='index.php?login=".$_SESSION['login']."&password=".$_SESSION['Password']."&vue=Videotheque&action=choixGenre&Genre=".$unGenre->getIdGenre()."' method='post''><p class=test >".$unGenre->getLibelleGenre()."</p><img src='http://localhost/ApplicationDeBase/Images/".$unGenre->getNomImage()."'></a>"; //'.ImageGenre($unGenre->getIdGenre()).'
 			}
 			$liste=$liste."</div></div>";
 		return $liste;

@@ -75,8 +75,19 @@ Class conteneurSupport
 
 	public function listeDessupportsParGenre($leGenreSupport)
 		{
-
-			return ;
+			$liste = '';
+			$liste = "<div class='container h-100'>
+	                    <div class='row h-100 justify-content-center align-items-center'>";
+			foreach ($this->lesSupports as $unSupport)
+				{
+					//$liste=$liste."<p>".$unSupport->getLeGenreDeSupport()->getIdGenre()."</p>";
+				if ($unSupport->getLeGenreDeSupport()->getIdGenre() == $leGenreSupport)
+					{
+					$liste = $liste."<p class=test >".$unSupport->getTitreSupport()."</p><img src='http://localhost/ApplicationDeBase/Images/".$unSupport->getImageSupport()."'>";
+					}
+				}
+				$liste=$liste."</div></div>";
+			return $liste;
 		}
 
 
