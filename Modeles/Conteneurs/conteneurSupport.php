@@ -100,7 +100,7 @@ Class conteneurSupport
 						//$liste=$liste."<p>".$unSupport->getLeGenreDeSupport()->getIdGenre()."</p>";
 					if ($unSupport->getIdSupport() == $unIdSupport)
 						{
-						$liste = $liste."<div><p class=test >".$unSupport->getTitreSupport()."</p><p class=test >".$unSupport->getRealisateurSupport()."</p></div><img src='http://localhost/ApplicationDeBase/Images/".$unSupport->getImageSupport()."'>";
+						$liste = $liste."<div><p class=test >".$unSupport->getTitreSupport()."</p><p class=test >".$unSupport->getRealisateurSupport()."</p><p class=test >".$unSupport->getIdSupport()."</p></div><img src='http://localhost/ApplicationDeBase/Images/".$unSupport->getImageSupport()."'>";
 						}
 					}
 					$liste=$liste."</div></div>";
