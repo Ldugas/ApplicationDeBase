@@ -306,6 +306,10 @@ Class gestionVideo
 		{
 		return $this->tousLesEpisodes->listeDesEpisodes();
 		}
+	public function listeLesRessources($leGenreSupport)
+		{
+		return $this->tousLesSupports->listeDessupportsParGenre($leGenreSupport);
+		}
 
 	//METHODE RETOURNANT LA LISTE DES DIFFERENTS ELEMENTS DANS DES BALISES <SELECT>-----------------------------------------------------------------
 	public function lesClientsAuFormatHTML()

@@ -23,7 +23,7 @@ Class conteneurGenre
 		}
 
 	//METHODE RETOURNANT LE NOMBRE de genres-------------------------------------------------------------------------------
-	public function nbGenre()
+	public function nbGenres()
 		{
 		return $this->lesGenres->count();
 		}
@@ -35,9 +35,10 @@ Class conteneurGenre
                     <div class='row h-100 justify-content-center align-items-center'>";
 
 		foreach ($this->lesGenres as $unGenre)
-			{	$liste = $liste.'<table style="text-align:center"><thead><tr><td class="text-white td-table">'.$unGenre->getLibelleGenre().'</td></thead><td class="text-white td-table"><img src="http://localhost/ApplicationDeBase/Images/'.$unGenre->getNomImage().'"></td></tr>'; //'.ImageGenre($unGenre->getIdGenre()).'
+			{
+				$liste = $liste."<form href = 'index.php?vue=Videotheque&action=choixGenre' method='post'><a href=''><p class=test >".$unGenre->getLibelleGenre()."</p><img src='http://localhost/ApplicationDeBase/Images/".$unGenre->getNomImage()."'></a></form>"; //'.ImageGenre($unGenre->getIdGenre()).'
 			}
-			$liste=$liste."</tbody></table></div></div>";
+			$liste=$liste."</div></div>";
 		return $liste;
 		}
 
