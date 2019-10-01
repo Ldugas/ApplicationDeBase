@@ -313,6 +313,10 @@ Class gestionVideo
 		{
 		return $this->tousLesSupports->listeDessupportsParGenre($leGenreSupport);
 		}
+	public function listeLeSupport($unSupport)
+		{
+		return $this->tousLesSupports->listeDuSupport($unSupport);
+		}
 
 	//METHODE RETOURNANT LA LISTE DES DIFFERENTS ELEMENTS DANS DES BALISES <SELECT>-----------------------------------------------------------------
 	public function lesClientsAuFormatHTML()
