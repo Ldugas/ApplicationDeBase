@@ -32,15 +32,10 @@ Class conteneurGenre
 	public function listeDesGenres()
 		{
 		$liste = "<div class='container h-100'>
-                    <div class='row h-100 justify-content-center align-items-center'>
-                        <table class='table w-50'>
-                            <thead>
-                                <td class='head-table-genre text-white'>Genre</td>
-                                <td class='head-table-genre text-white'>Image</td>
-                            </thead>
-                            <tbody>";
+                    <div class='row h-100 justify-content-center align-items-center'>";
+
 		foreach ($this->lesGenres as $unGenre)
-			{	$liste = $liste.'<tr><td class="text-white td-table">'.$unGenre->getLibelleGenre().'</td><td class="text-white td-table"><img src="http://localhost/ApplicationDeBase/Images/'.$unGenre->getNomImage().'"></td></tr>'; //'.ImageGenre($unGenre->getIdGenre()).'
+			{	$liste = $liste.'<table style="text-align:center"><thead><tr><td class="text-white td-table">'.$unGenre->getLibelleGenre().'</td></thead><td class="text-white td-table"><img src="http://localhost/ApplicationDeBase/Images/'.$unGenre->getNomImage().'"></td></tr>'; //'.ImageGenre($unGenre->getIdGenre()).'
 			}
 			$liste=$liste."</tbody></table></div></div>";
 		return $liste;
