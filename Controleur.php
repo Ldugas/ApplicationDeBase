@@ -218,9 +218,15 @@ class Controleur
 								//$_SESSION['lesRessources'] = $this->maVideotheque->listeLesRessources($unGenre);
 								$unGenre=$_GET['Genre'];
 								echo $this->maVideotheque->listeLesRessources($unGenre);
-								require 'Vues/voirRessources.php';
+							//	require 'Vues/voirRessources.php';
 								}
 							break;
+							case "choixSupport" :
+									//$_SESSION['lesRessources'] = $this->maVideotheque->listeLesRessources($unGenre);
+									$unIdSupport=$_GET['Support'];
+									echo $this->maVideotheque->listeLeSupport($unIdSupport);
+								//	require 'Vues/voirRessources.php';
+								break;
 							case "enregistrer" :
 								$nom = $_POST['nomRessource'];
 								if (empty($nom))
