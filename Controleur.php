@@ -181,47 +181,57 @@ class Controleur
 	private function vueVideotheque($action)
 		{
 		//SELON l'action demandée
-		switch ($action)
-			{
+		$unLogin=$_GET['login'];
+		$unPassword=$_GET['password'];
+		$resultat=$this->maVideotheque->verifLogin($unLogin, $unPassword);
+				//si le client existe alors j'affiche le menu et la page visuGenre.php
+				if($resultat==1)
+				{
+					switch ($action)
+						{
 
-			//CAS Choix d'un genre------------------------------------------------------------------------------------------------
-			case "choixGenre" :
-				if ($this->maVideotheque->donneNbGenres()==0)
-					{
-					$message = "il n existe pas de genre";
-					$lien = 'index.php?vue=ressource&action=ajouter';
-					$_SESSION['message'] = $message;
-					$_SESSION['lien'] = $lien;
-					require 'Vues/erreur.php';
-					}
-				else
-					{
-					//$_SESSION['lesRessources'] = $this->maVideotheque->listeLesRessources();
-					echo $this->maVideotheque->listeLesRessources($genre);
-					require 'Vues/voirRessource.php';
-					}
-				break;
+						//CAS Choix d'un genre------------------------------------------------------------------------------------------------
+						case "choixGenre" :
+							if ($this->maVideotheque->donneNbGenres()==0)
+								{
+								$message = "il n existe pas de genre";
+								$lien = 'index.php?vue=ressource&action=ajouter';
+								$_SESSION['message'] = $message;
+								$_SESSION['lien'] = $lien;
+								require 'Vues/erreur.php';
+								}
+							else
+								{
+								//$_SESSION['lesRessources'] = $this->maVideotheque->listeLesRessources();
+								$unGenre=$_GET['Genre'];
+								echo $this->maVideotheque->listeLesRessources($unGenre);
+								require 'Vues/voirRessource.php';
+								}
+							break;
+							case "enregistrer" :
+								$nom = $_POST['nomRessource'];
+								if (empty($nom))
+									{
+									$message = "Veuillez saisir les informations";
+									$lien = 'index.php?vue=ressource&action=ajouter';
+									$_SESSION['message'] = $message;
+									$_SESSION['lien'] = $lien;
+									require 'Vues/erreur.php';
+									}
+								else
+									{
+									$this->maMairie->ajouteUneressource($nom);
+									require 'Vues/enregistrer.php';
+									//$_SESSION['Controleur'] = serialize($this);
+									}
+								break;
+						}
+				}
 
 			//CAS enregistrement d'une ressource dans la base------------------------------------------------------------------------------
-			case "enregistrer" :
-				$nom = $_POST['nomRessource'];
-				if (empty($nom))
-					{
-					$message = "Veuillez saisir les informations";
-					$lien = 'index.php?vue=ressource&action=ajouter';
-					$_SESSION['message'] = $message;
-					$_SESSION['lien'] = $lien;
-					require 'Vues/erreur.php';
-					}
-				else
-					{
-					$this->maMairie->ajouteUneressource($nom);
-					require 'Vues/enregistrer.php';
-					//$_SESSION['Controleur'] = serialize($this);
-					}
-				break;
+
 			}
-		}
+		
 
 	}
 ?>
